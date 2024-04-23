@@ -10,8 +10,6 @@
     <div id="myMap" style="height: 800px; width: 1000px;"></div>
 	<script>
 	   window.loadMap = function() { 
-			alert("map loaded with autosugegstions"); 
-			
 			    var mapOptions = {};
 			    var map = new atlas.Map('myMap', mapOptions);
 				var controls = Microsoft.Maps.Internal.AtlasHelper.constructCommonControls(false, false);
@@ -28,11 +26,19 @@
 				document.body.append(searchContainer);
 				var options = {
 					maxResults: 4,
-					map: map,
  					businessSuggestions: true,
 					selectFirstOnEnter: true
 				};
 
+		   		if (window.location.search.indexOf("asmaps")>=0)
+				{
+					alert("associate autosuggestion with maps");
+					options.map = map;
+				}
+		   		else
+				{
+					alert("dont associate autosuggestion with maps");
+				}
 				var mgr = new Microsoft.Maps.AutosuggestManager.Instance(options);
 				mgr.attachAutosuggest('#searchbox', '#searchContainer', selectedSuggestion);
 
