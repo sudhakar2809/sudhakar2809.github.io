@@ -10,7 +10,7 @@
     <div id="myMap" style="height: 800px; width: 1000px;"></div>
 	<script>
 	   window.loadMap = function() { 
-			console.log("map loaded"); 
+			alert("map loaded"); 
 			
 			    var mapOptions = {};
 			    var map = new atlas.Map('myMap', mapOptions);
@@ -28,8 +28,7 @@
 				document.body.append(searchContainer);
 				var options = {
 					maxResults: 4,
-                    			map: map,
-					businessSuggestions: true,
+ 					businessSuggestions: true,
 					selectFirstOnEnter: true
 				};
 
