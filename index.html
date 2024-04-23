@@ -14,6 +14,11 @@
 			
 			    var mapOptions = {};
 			    var map = new atlas.Map('myMap', mapOptions);
+				var controls = Microsoft.Maps.Internal.AtlasHelper.constructCommonControls(false, false);
+				map.controls.add(controls,
+					{
+						position: atlas.ControlPosition.TopRight
+					});
 			    var searchContainer = document.createElement('div');
 				searchContainer.id = 'searchContainer';
 				var searchbox = document.createElement('input');
@@ -23,6 +28,7 @@
 				document.body.append(searchContainer);
 				var options = {
 					maxResults: 4,
+                    			map: map,
 					businessSuggestions: true,
 					selectFirstOnEnter: true
 				};
