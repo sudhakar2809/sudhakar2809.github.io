@@ -7,11 +7,13 @@
     <title>New Bing Maps test</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="myMap" style="height: 800px; width: 1000px;"></div>
 	<script>
 	   window.loadMap = function() { 
 			console.log("map loaded"); 
 			
+			    var mapOptions = {};
+			    var map = new atlas.Map('myMap', mapOptions);
 			    var searchContainer = document.createElement('div');
 				searchContainer.id = 'searchContainer';
 				var searchbox = document.createElement('input');
